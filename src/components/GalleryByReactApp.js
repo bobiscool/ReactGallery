@@ -1,4 +1,3 @@
-'use strict';
 
 var React = require('react/addons');
 
@@ -14,7 +13,7 @@ imageDatas = (function genImageURL(imageDatasArr) {
     for (var i = 0, j = imageDatasArr.length; i < j; i++) {
         var singleImageData = imageDatasArr[i];
 
-        singleImageData.imageURL = require(( '../images/' + singleImageData.filename));
+        singleImageData.imageURL = 'http://7o50ww.com1.z0.glb.clouddn.com/reactdemo/' + singleImageData.filename;
 
         imageDatasArr[i] = singleImageData;
     }
@@ -42,6 +41,29 @@ var ImgFigure = React.createClass({
 
 
 var GalleryByReactApp = React.createClass({
+
+    Constant: {
+      centerPos: {
+          left: 0,
+          right: 0
+      },
+        hPosRange: { //水平方向取值范围
+          leftSecX: [0, 0],
+          rightSecX: [0, 0],
+          y: [0, 0]
+        },
+        vPosRange: {//垂直方向取值范围
+            x: [0, 0],
+            topY: [0, 0]
+        }
+    },
+//组件加载完之后  为每张图片计算其位置范围
+    componentDidMount:function(){
+
+    }
+
+
+
      render: function () {
          var controllerUnits = [],
              imageFigures = [];

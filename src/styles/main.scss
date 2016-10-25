@@ -35,6 +35,7 @@ html, body {
 
     @at-root {
         .img-figure {
+            position: absolute;
             width:320px;
             height:360px;
             margin:0;
@@ -47,6 +48,9 @@ html, body {
             text-align: center;
 
             .img-title {
+                margin: 20px 0 0 0;
+
+                color:#a7a0a2
 
             }
         }
