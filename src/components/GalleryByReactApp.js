@@ -14,7 +14,7 @@ imageDatas = (function genImageURL(imageDatasArr) {
     for (var i = 0, j = imageDatasArr.length; i < j; i++) {
         var singleImageData = imageDatasArr[i];
 
-        singleImageData.imageURL = require('../images/' + singleImageData.fileName);
+        singleImageData.imageURL = require(('../images/' + singleImageData.filename));
 
         imageDatasArr[i] = singleImageData;
     }
@@ -25,18 +25,46 @@ imageDatas = (function genImageURL(imageDatasArr) {
 /*
  * 获取区间内的一个随机值
  */
+
+var ImgFigure = React.createClass({
+    render: function () {
+        return (
+            <figure>
+                <img src={this.props.data.imageURL} alt={this.props.data.title}/>
+                <figcaption>
+                    <h2>{this.props.data.title}</h2>
+                </figcaption>
+
+            </figure>
+        );
+    }
+});
+
+
 var GalleryByReactApp = React.createClass({
-     render:function () {
+     render: function () {
+         var controllerUnits = [],
+             imageFigures = [];
+
+         imageDatas.forEach(function(value){
+            imageFigures.push(<ImgFigure data={value}/>);
+         });
+
         return (
             <section className="stage">
-                <section className="img-sec"></section>
+                <section className="img-sec">
+                    {imageFigures}
+                </section>
                 <nav className="controller-nav">
-
+                    {controllerUnits}
                 </nav>
             </section>
         );
     }
 });
+
+
+
 
 
 React.render(<GalleryByReactApp/>, document.getElementById('content'));
