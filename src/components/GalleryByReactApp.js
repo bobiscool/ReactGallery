@@ -82,6 +82,30 @@ var ImgFigure = React.createClass({
         );
     }
 });
+
+var ControllerUnit = React.createClass({
+    handleClick: function(e){
+        if(this.props.arrange.isCenter){
+            this.props.inverse();
+        }else{
+            this.props.center();
+        }
+        e.preventDefault();
+        e.stopPropagation();
+    },
+    render: function(){
+
+        var contorllerUnitsClassName = 'controller-unit';
+        if(this.props.arrange.isCenter){
+            contorllerUnitsClassName = 'controller-unit is-center';
+            if(this.props.arrange.isInverse){
+                contorllerUnitsClassName = 'controller-unit is-center is-inverse';
+            }
+        }
+        return (
+            <span className={contorllerUnitsClassName} onClick={this.handleClick}></span> );
+    }
+});
 // 图片区组件
 var GalleryByReactApp = React.createClass({
 
@@ -132,7 +156,7 @@ var GalleryByReactApp = React.createClass({
             vPosRangeTopY = vPosRange.topY,
             vPosRangeX = vPosRange.x,
             imgsArrangeTopArr = [],
-            topImgNum = Math.ceil(Math.random() * 2),
+            topImgNum = Math.floor(Math.random() * 2),
             topImgSpliceIndex = 0,
             imgsArrangeCenterArr = imgsArrangeArr.splice(centerIndex, 1);
 
@@ -277,14 +301,17 @@ var GalleryByReactApp = React.createClass({
             imageFigures.push(<ImgFigure data={value} ref={'imgFigure' + index}
                                          arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)}/>);
             //传递状态信息
+            controllerUnits.push(< ControllerUnit arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)}/>);
+
+
         }.bind(this));
 
         return (
-            <section className="stage" ref="stage">
-                <section className="img-sec">
+            <section className='stage' ref='stage'>
+                <section className='img-sec'>
                     {imageFigures}
                 </section>
-                <nav className="controller-nav">
+                <nav className='controller-nav'>
                     {controllerUnits}
                 </nav>
             </section>
