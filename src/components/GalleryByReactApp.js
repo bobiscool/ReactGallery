@@ -298,10 +298,10 @@ var GalleryByReactApp = React.createClass({
                     isCenter: false
                 };
             }
-            imageFigures.push(<ImgFigure data={value} ref={'imgFigure' + index}
+            imageFigures.push(<ImgFigure key={index} data={value} ref={'imgFigure' + index}
                                          arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)}/>);
             //传递状态信息
-            controllerUnits.push(< ControllerUnit arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)}/>);
+            controllerUnits.push(< ControllerUnit key={index} arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)}/>);
 
 
         }.bind(this));
