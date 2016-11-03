@@ -7,7 +7,7 @@ Gallery By React
 
 ## Demo & Examples
 
-Live demo: [http://materliu.github.io/gallery-by-react/](http://materliu.github.io/gallery-by-react/)
+Live demo: [http://reactgallery.applinzi.com/](http://reactgallery.applinzi.com/)
 
 To build the examples locally, run:
 
@@ -20,7 +20,7 @@ Then open [`http://localhost:8000/webpack-dev-server/`](http://localhost:8000/we
 
 ## Guideline
 
-不建议大家直接照搬源代码，可利用其中的一些资源文件，比如说图片，Icon Font文件等，最好的实践过程是跟着课程一步步构建你自己的图片画廊应用。
+图片画廊应用。
 
 ## 求赞
 
@@ -28,9 +28,7 @@ Then open [`http://localhost:8000/webpack-dev-server/`](http://localhost:8000/we
 
 ## Gratitude
 
-* lyn
-* codrops/ScatteredPolaroidsGallery
-* 有问题可发issue， 或者微博沟通： [http://weibo.com/jasonandliu/](http://weibo.com/jasonandliu/)
+
 
 ## Browser Support
 
